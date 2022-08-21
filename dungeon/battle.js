@@ -1,7 +1,7 @@
 'use strict'
 
 function endBattle(){
-    changeState();
+    changeState("isExplore");
 }
 
 function turn(){

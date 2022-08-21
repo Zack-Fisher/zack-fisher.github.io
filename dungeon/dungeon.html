@@ -23,12 +23,13 @@
     <link type = "text/css" href = "dungeon.css" rel = "stylesheet">
 </head>
 <body id = "body">
-    <canvas id = "worldMap"></canvas>
+    <canvas id = "worldmap" width = "500" height = "500"></canvas>
 
 
-    <canvas id = "screen"></canvas>
+    <canvas id = "screen" width = "600" height = "480"></canvas>
 
     <div id = "stats">
+        <p>
         <p>Walk with W, A, S, D keys.</p>
         <br>
         <button onclick = "changeState()">change state</button>
@@ -56,21 +57,24 @@
         <button onclick = "useItem(document.getElementById('inventory').value)" id = "use">use</button>
         <button onclick = "renderInventory()">render</button>
         <button onclick = "muteToggle()">toggle mute</button>
-        <button onclick = "document.getElementById('worldMap').style.visibility = `visible`">goto world map</button>
+        <button onclick = "changeState('isWorldmap')">isWorldmap</button>
+        <br>
+        <button onclick = "changeState('isExplore')">isExplore</button>
+        </p>
     </div>
 
-    <canvas id = "minimap"></canvas>
+    <canvas id = "minimap" width = "300" height = "200"></canvas>
 
-    <canvas id = "text"></canvas>
+    <canvas id = "text" width = "600" height = "130"></canvas>
 
     <!--image assets for the canvas-->
     <!--room screens-->
-    <img src = "dungeonImg/closed.png" id = "closed" alt = "closed">
+    <img src = "dungeonImg/closed.png" id = "closed" alt = "closed" width = "600" height="480">
     <img src = "dungeonImg/open.png" id = "open" alt = "open">
 
     <!--room objects-->
-    <img src = "dungeonImg/chest.png" id = "chest" alt = "chest" width = "256" height = "256">
-    <img src = "dungeonImg/stairs.png" id = "stairs" alt = "stairs" width = "256" height = "256">
+    <img src = "dungeonImg/chest.png" id = "chest" alt = "chest">
+    <img src = "dungeonImg/stairs.png" id = "stairs" alt = "stairs">
 
     <!--menu images/etc-->
     <img src = "dungeonImg/arrow.png" id = "arrow" alt = "arrow">
@@ -90,7 +94,7 @@
     <audio loop id = "empty">
     </audio>
 
-    <script src = "initialize.js" defer></script>
+    <!--<script src = "initialize.js" defer></script>-->
 
     <script src = "playerData.js" defer></script>
     <script src = "enemyData.js" defer></script>

@@ -1,5 +1,9 @@
 'use strict'
 
+function drawWorldmap(){
+
+}
+
 function drawEnemyStats(){
     if (currentEnemy != undefined){
         drawTextScreen(currentEnemyHealth + "/" + currentEnemy.maxHealth);
@@ -14,18 +18,18 @@ function updateStats(){
 function drawEnemy(){
     if (currentEnemy != undefined){
         var enemyAsset = document.getElementById(currentEnemy.name);
-        screen.drawImage(enemyAsset, 10, 10);
+        screen.drawImage(enemyAsset, 200, 200);
     }
 }
 
 function drawEntity(){
     switch (currentMap[playerPosition[1]][playerPosition[0]]){
         case 2: //chest
-            screen.drawImage(chestImg, 10, 10);
+            screen.drawImage(chestImg, 160, 160);
             entityHandler(2);
             break;
         case 3: //stairs
-            screen.drawImage(stairsImg, 0, 0, 100, 100, 0, 0, 100, 100);
+            screen.drawImage(stairsImg, 160, 160);
             entityHandler(3);
             break;
     }
@@ -34,10 +38,10 @@ function drawEntity(){
 function drawScreen(willCollide){
     //is the player facing a wall?
     if (willCollide == true){
-        screen.drawImage(closedImg, 0, 0, 200, 150);
+        screen.drawImage(closedImg, 0, 0);
     }
     else{
-        screen.drawImage(openImg, 0, 0, 200, 150);
+        screen.drawImage(openImg, 0, 0);
     }
 }
 
@@ -97,8 +101,8 @@ function drawText(textString){
 
     for (var i = 0; i < textShown.length; i++){
         text.font = "20px Times New Roman";
-        text.fillText(">>", 5, 18 + (i * 20), 10);
-        text.fillText(textShown[i], 20, 18 + (i * 20), textShown[i].length * 4.2); //have the max width change wrt string size
+        text.fillText(">>", 5, 18 + (i * 20));
+        text.fillText(textShown[i], 20, 18 + (i * 20)); //have the max width change wrt string size
     }
 }
 
@@ -110,17 +114,33 @@ function drawingHandler(){
     //all drawing must happen here (except for text);
 
     //in screen
+    worldmapCanvas.style.visibility = "hidden";
     screen.fillRect(0, 0, 900, 900); //clear screen
-    drawScreen(isColliding(1));
-    drawEntity();
-    drawEnemy();
-    drawEnemyStats();
+    if(isBattle || isExplore){
+        drawScreen(isColliding(1));
+        drawEntity();
+        drawEnemy();
+        drawEnemyStats();
 
-    //in minimap
-    drawMinimap();
+        //in minimap
+        drawMinimap();
 
-    //in options
-    updateStats();
+        //in options
+        updateStats();
+    }
+    
+    if(isWorldmap){
+        worldmapCanvas.style.visibility = "visible";
+        worldmap.fillRect(0, 0, 900, 900);
+    }
+
+    if(isRoom){
+
+    }
+
+    if(isCutscene){
+        
+    }
 }
 
 var minimapCanvas = document.getElementById("minimap");
@@ -134,6 +154,9 @@ var textShownPrevLength = 0;
 
 var screenCanvas = document.getElementById("screen");
 var screen = screenCanvas.getContext("2d");
+
+var worldmapCanvas = document.getElementById("worldmap");
+var worldmap = worldmapCanvas.getContext("2d");
 
 var currentMap = map.mapData;
 

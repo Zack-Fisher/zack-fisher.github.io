@@ -26,26 +26,52 @@ function changeState(which){    //all music changes can be handled in the change
     switch(which){
         case 'isBattle':
             isBattle = true;
-            isExplore, isWorldMap = false;
+            isExplore = false; 
+            isWorldmap = false;
+            isRoom = false;
+            isCutscene = false;
             break;
         case 'isExplore':
             isExplore = true;
-            isBattle, isWorldMap = false;
+            isBattle = false;
+            isWorldmap = false;
+            isRoom = false;
+            isCutscene = false;
             break;
-        case 'isWorldMap':
-            isWorldMap = true;
-            isBattle, isExplore = false;
+        case 'isWorldmap':
+            isWorldmap = true;
+            isBattle = false;
+            isExplore = false;
+            isRoom = false;
+            isCutscene = false;
+            break;
+        case 'isRoom':
+            isWorldmap = false;
+            isBattle = false;
+            isExplore = false;
+            isRoom = true;
+            isCutscene = false;
+            break;
+        case 'isCutscene':
+            isWorldmap = false;
+            isBattle = false;
+            isExplore = false;
+            isRoom = false;
+            isCutscene = true;
             break;
         default:
-            console.log("invalid state");
+            console.log("invalid changeState() input (main.js)");
             break;
     }
     setupKeys();
     if(isBattle){
         playMusic("battleMusic");
     }
-    if(!isBattle){
+    if(isExplore){
         playMusic("dungeonAmbience");
+    }
+    if(isWorldmap){
+
     }
 }
 
@@ -109,7 +135,7 @@ function moveSpace(direction){
         drawEntity();
 
         if (battleChance()){
-            changeState();
+            changeState("isBattle");
             battleHandling();
         }
     }
@@ -162,7 +188,9 @@ function interact(){
 
 var isBattle = false;
 var isExplore = true;
-var isWorldMap = false;
+var isWorldmap = false;
+var isRoom = false;
+var isCutscene = false;
 
 var buttonParagraph = document.getElementById("buttons");
 

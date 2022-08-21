@@ -7,18 +7,14 @@ img{
 }
 
 #screen{
-    width: 600px;
-    height: 480px;
     position: absolute;
     border: 2px dotted black;
     background-color: gray;
 }
 
 #minimap{
-    left: 30px;
+    left: 30px; /*WHATEVER YOU DO, DO NOT SET CANVAS SIZE IN CSS!*/
     top: 450px;
-    height: 200px;
-    width: 300px;
     position: absolute;
     border: 2px dotted black;
     background-color: rgb(53, 50, 50);
@@ -27,8 +23,6 @@ img{
 #text{
     left: 400px;
     top: 520px;
-    width: 600px;
-    height: 130px;
     position: absolute;
     border: 2px dotted black;
     background-color: rgb(177, 167, 167);
@@ -49,12 +43,10 @@ img{
 }
 
 
-#worldMap{
+#worldmap{
     border: 2px dotted black;
     left: 100px;
     top: 80px;
-    width: 500px;
-    height: 500px;
     visibility: hidden;
     position: absolute;
     background-color: rgb(19, 18, 18);
