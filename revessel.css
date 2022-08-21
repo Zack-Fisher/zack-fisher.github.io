@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    color: lightblue;
+  }
+
+h1{
+  text-align: center;
+}
+
+#tutorial {
+	color: purple;
+}
+
+#container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  background-color: blue;
+}
+
+#player {
+  width: 24px;
+  height: 32px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: url("/asset/resaWalksprites.png") no-repeat -24px -64px;
+}
+
+#collision{
+  left: 400px;
+  top: 0px;
+	height: 100px;
+	width: 100px;
+	background-color: mediumvioletred;
+	position: absolute;
+	z-index: -1;
+}

@@ -1,0 +1,14 @@
+body {
+    background-color: lightgreen;
+    color: darkgreen;
+  }
+p {
+    color: red;  
+    margin-left: 40px;
+  }
+
+#idScore{
+  background-image: "/asset/shutup.jpg";
+  width: 100px;
+  height: 200px;
+}

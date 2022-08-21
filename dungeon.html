@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type = "text/css" href = "dungeon.css" rel = "stylesheet">
+</head>
+<body id = "body">
+    <canvas id = "worldMap"></canvas>
+
+
+    <canvas id = "screen"></canvas>
+
+    <div id = "stats">
+        <p>Walk with W, A, S, D keys.</p>
+        <br>
+        <button onclick = "changeState()">change state</button>
+        <p id = "buttons"></p>
+        <br>
+        <br>
+        <p id = "interactButton"><button onclick = "interact()">interact</button></p>
+        <br>
+        
+        <br>
+
+        <label>inventory
+            <select name = "inventory" id = "inventory">
+
+            </select>
+        </label>
+
+        <br>
+        <div>
+            <p id = "health"></p>
+            <p id = "mana"></p>
+        </div>
+
+            <br>
+        <button onclick = "useItem(document.getElementById('inventory').value)" id = "use">use</button>
+        <button onclick = "renderInventory()">render</button>
+        <button onclick = "muteToggle()">toggle mute</button>
+        <button onclick = "document.getElementById('worldMap').style.visibility = `visible`">goto world map</button>
+    </div>
+
+    <canvas id = "minimap"></canvas>
+
+    <canvas id = "text"></canvas>
+
+    <!--image assets for the canvas-->
+    <!--room screens-->
+    <img src = "asset/dungeonImg/closed.png" id = "closed" alt = "closed">
+    <img src = "asset/dungeonImg/open.png" id = "open" alt = "open">
+
+    <!--room objects-->
+    <img src = "asset/dungeonImg/chest.png" id = "chest" alt = "chest" width = "256" height = "256">
+    <img src = "asset/dungeonImg/stairs.png" id = "stairs" alt = "stairs" width = "256" height = "256">
+
+    <!--menu images/etc-->
+    <img src = "asset/dungeonImg/arrow.png" id = "arrow" alt = "arrow">
+
+    <!--monsters-->
+    <img src = "asset/dungeonImg/monster/slimeMonster.png" id = "slime" alt = "slime">
+
+
+
+    <!--audio assets-->
+    <audio loop id = "battleMusic">
+        <source src = "asset/audio/dungeonSounds/dungeonMusic/battleTheme.wav" type="audio/wav">
+    </audio>
+    <audio loop id = "dungeonAmbience">
+        <source src = "asset/audio/dungeonSounds/dungeonMusic/dungeonAmbience.wav" type="audio/wav">
+    </audio>
+    <audio loop id = "empty">
+    </audio>
+
+    <script src = "initialize.js" defer></script>
+
+    <script src = "playerData.js" defer></script>
+    <script src = "enemyData.js" defer></script>
+    <script src = "mapData.js" defer></script>
+    <script src = "music.js" defer></script>
+    <script src = "drawStuff.js" defer></script>
+    <script src = "battle.js" defer></script>
+    <script src = "main.js" defer></script>
+</body>
+</html>

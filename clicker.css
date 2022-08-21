@@ -1,0 +1,55 @@
+body{
+	background-color: black;
+}
+
+p{
+	text-align: center;
+}
+
+.upgrade{
+	font: oblique;
+	width: 200px;
+	height: 50px;
+}
+
+#main{
+	width: 1000px;
+	height: 1000px;
+	background-color: blue;
+	position: relative;
+}
+
+#upgrades{
+	width: 400px;
+	height: 800px;
+	background-color: red;
+	position: relative;
+}
+
+#click{
+	left: 500px;
+	top: -800px;
+	width: 400px;
+	height: 800px;
+	background-color: green;
+	position: relative;
+}
+
+#counter{
+	background-color: white;
+	text-align: center;
+}
+
+#postButton{
+	height: 400px;
+	width: 400px;
+	border-radius: 40px;
+	background-image: url("/asset/tired.png");
+}
+
+#exposition{
+	width: 400px;
+	height: 100px;
+	background-color: purple;
+	position: relative;
+}

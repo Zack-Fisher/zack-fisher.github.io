@@ -1,0 +1,57 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang = "en">
+<head>
+<meta charset="utf-8">
+<title>clicker</title>
+<link href="/clicker.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+	<h1 id = "counter">Days Ruined:</h1>
+	<br>
+<div id = "main">
+	<div id = "upgrades">
+		<div id = "allyUpgrade">
+			<button onMouseOut = "hidePrice('ally')" onMouseOver = "showPrice('ally')" onclick = "buy('ally')" class = "upgrade">
+			+1 ally
+			</button>
+			<p id = "allyText">
+				Because even trolls need friends.
+			</p>
+		</div>
+		
+		<br>
+		
+		<div id = "botUpgrade">
+			<button onMouseOut = "hidePrice('bot')" onMouseOver = "showPrice('bot')" onclick = "buy('bot')" class = "upgrade">
+			+1 bot
+			</button>
+			<p id = "botText">
+				May or may not be a real person.
+			</p>
+		</div>
+		<br>
+		<div>
+			<button onclick = "buy('ally')" class = "upgrade">
+			+1 ally
+			</button>
+			<p>
+				
+			</p>
+		</div>
+	</div>
+    <div id = "click">
+		<button id = "postButton" onclick = "makePost()">
+			Post something...
+		</button>
+	</div>
+</div>
+
+<div id = "exposition">
+	<p>You've been given the gift of social media, and it's time to ruin some lives! Get those numbers up!</p>	
+</div>
+	
+	<script src = "clicker.js" defer></script>
+</body>
+</html>

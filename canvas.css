@@ -1,0 +1,9 @@
+canvas{
+    border: 2px solid red;
+    border-radius: 25px;
+    background-color: teal;
+}
+
+img{
+    visibility: hidden;
+}

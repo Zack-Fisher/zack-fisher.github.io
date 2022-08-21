@@ -1,0 +1,54 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang = "en">
+<head>
+<meta charset="utf-8">
+<title>exerciseds</title>
+</head>
+	
+	
+<body>
+	<p>give a list<br>get a minimum element</p>
+	<br>
+	
+	<label>testtest<input type = "text" id = "formin"></label>
+	<button type = "button" onclick = "submit()">calculate minimum</button>
+	<button type = "button" onclick = "reset()" id = "resetButton">reset</button>
+	
+	<br>
+	<p id = "output"></p>
+	<br>
+
+	<label>put a number buddy<input type = "number" id = "isEvenInput"></label>
+	<button type = "button" onclick = "this.innerHTML = isEven(document.getElementById('isEvenInput').value)">isEven</button>
+	<br>
+	<br>
+
+	<label>start point <input type = "number" id = "startPoint"></label>
+	<label>end point <input type = "number" id = "endPoint"></label>
+	<label>steps <input type = "number" id = "steps"></label>
+	<br>
+	<button onclick = "sum(range())"> calculate sum </button>
+	<br>
+	<p id = "rangeAns"></p>
+
+	<br>
+	<br>
+	<br>
+
+	<p>now for my next trick...\n i will reverse your string!!!!!</p>
+	<br>
+	<p>enter some words with dashes inbetween... (-)</p>
+	<br>
+	<label>words box <input type = "text" id = "arrayEntry"></label>
+	<button onClick = 'reverseArray()'>reverse the array</button>
+	<button onClick = 'reverseArrayInPlace()'>reverse the array but cooler</button>
+	<br>
+	<p id = "arrayAns"></p>
+
+	<script src = "/exerciseMin.js" defer></script>
+	<script src = "/exerciseRecursion.js" defer></script>
+	<script src = "/exerciseRange.js" defer></script>
+	<script src = "/exerciseReverseArray.js" defer></script>
+</body>
+</html>
