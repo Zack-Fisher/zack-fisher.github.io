@@ -1,7 +1,26 @@
 'use strict'
 
 function drawWorldmap(){
-    
+    worldmap.drawImage(cursor, playerXOffset, playerYOffset);
+
+    if (playerXOffset > (worldmapCanvas.width * worldmapScrollThreshold))
+    {
+        worldmapWidth += 10;
+        worldmapCanvas.width = worldmapWidth + "";
+    }
+    if (playerYOffset > (worldmapCanvas.height * worldmapScrollThreshold))
+    {
+        worldmapHeight += 10;
+        worldmapCanvas.height = worldmapHeight + "";
+    }
+}
+
+function drawRoom(){
+
+}
+
+function drawCutscene(){
+
 }
 
 function drawEnemyStats(){
@@ -132,14 +151,15 @@ function drawingHandler(){
     if(isWorldmap){
         worldmapCanvas.style.visibility = "visible";
         worldmap.fillRect(0, 0, 900, 900);
+        drawWorldmap();
     }
 
     if(isRoom){
-
+        drawRoom();
     }
 
     if(isCutscene){
-        
+        drawCutscene();
     }
 }
 
@@ -162,12 +182,22 @@ var currentMap = map.mapData;
 
 var minimapDrawSize = 10;
 
+var worldmapScrollThreshold = 0.75;
+var worldmapWidth = 500;
+var worldmapHeight = 500;
+
 //images for the screen
+
+//dungeon
 var closedImg = document.getElementById("closed");
 var openImg = document.getElementById("open");
 var arrowImg = document.getElementById("arrow");
 var chestImg = document.getElementById("chest");
 var stairsImg = document.getElementById("stairs");
+
+//worldmap
+var cursorImg = document.getElementById("cursor");
+
 
 var healthParagraph = document.getElementById("health");
 var manaParagraph = document.getElementById("mana");

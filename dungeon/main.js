@@ -71,7 +71,7 @@ function changeState(which){    //all music changes can be handled in the change
         playMusic("dungeonAmbience");
     }
     if(isWorldmap){
-        playMusic("industrialOverworld");
+        playMusic("industrialWorld");
     }
 }
 
@@ -168,7 +168,22 @@ function move(e){
 //worldmap movement funcs
 
 function moveWorldmap(e){
-
+    switch(e){
+        case 'w':
+            playerYOffset -= playerSpeed;
+            break;
+        case 'a':
+            playerXOffset -= playerSpeed;
+            break;
+        case 's':
+            playerYOffset += playerSpeed;
+            break;
+        case 'd':
+            playerXOffset += playerSpeed;
+            break;
+        default:
+            break;
+    }
 }
 
 //room movement funcs
@@ -219,6 +234,9 @@ var playerRotation = 0;
 var currentChests = map.chests;
 
 //for worldmap movement
+var playerXOffset = 0;
+var playerYOffset = 0;
+var playerSpeed = 5;
 
 //for room movement
 
