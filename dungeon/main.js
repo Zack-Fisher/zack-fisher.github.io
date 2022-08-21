@@ -71,7 +71,7 @@ function changeState(which){    //all music changes can be handled in the change
         playMusic("dungeonAmbience");
     }
     if(isWorldmap){
-
+        playMusic("industrialOverworld");
     }
 }
 
@@ -165,6 +165,24 @@ function move(e){
     }    
 }
 
+//worldmap movement funcs
+
+function moveWorldmap(e){
+
+}
+
+//room movement funcs
+
+function roomKeyHandler(e){
+
+}
+
+//cutscene movement funcs
+
+function cutsceneKeyHandler(e){
+
+}
+
 function interact(){
     switch (currentMap[playerPosition[1]][playerPosition[0]]){
         case 0:
@@ -194,13 +212,34 @@ var isCutscene = false;
 
 var buttonParagraph = document.getElementById("buttons");
 
+//for dungeon movement
 var playerPosition = getPlayerPosition(); // [x, y] vector of player
 var playerRotation = 0;
 
 var currentChests = map.chests;
 
-document.addEventListener("keydown", (e) => {
-    move(e.key);    //move with wasd
+//for worldmap movement
+
+//for room movement
+
+//for cutscene movement
+
+document.addEventListener("keydown", (e) => {   //different key handlers for every state
+    if (isBattle || isExplore){
+        move(e.key);    //move with wasd
+    }
+
+    if(isWorldmap){
+        moveWorldmap(e.key);
+    }
+
+    if(isRoom){
+        roomKeyHandler(e.key);
+    }
+
+    if(isCutscene){
+        cutsceneKeyHandler(e.key);
+    }
 });
 
 setInterval(drawingHandler, 30);

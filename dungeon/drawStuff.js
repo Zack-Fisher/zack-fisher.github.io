@@ -1,7 +1,7 @@
 'use strict'
 
 function drawWorldmap(){
-
+    
 }
 
 function drawEnemyStats(){
