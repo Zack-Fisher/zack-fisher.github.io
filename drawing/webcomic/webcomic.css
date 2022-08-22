@@ -1,0 +1,82 @@
+p{
+    font-family:'Courier New', Courier, monospace;
+    background-color: rgb(145, 145, 145);
+    text-align: center;
+}
+
+img{
+    background-color: rgb(216, 216, 216);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.link{
+    font-size: larger;
+    font-family:'Courier New', Courier, monospace;
+    color: blue;
+    text-decoration: underline;     
+    text-decoration-color: blue; 
+    background-color: transparent;
+    border-width: 0px;
+}
+
+.controls{
+    width: 64px;
+    height: 64px;
+    background-color: transparent;
+}
+
+#main{
+    margin: auto;
+    text-align: center;
+    top: 30px;
+    right: 0;
+    bottom: 30px;
+    left: 0;
+    width: 600px;
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+#controlBox{
+    position:relative;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: white;
+    background-color: rgb(70, 70, 70);
+    border-radius: 2px;
+}
+
+#controls{
+    margin-top: 1%;
+    display: inline-block;
+    text-align: center;
+}
+
+#content{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background-color: rgb(212, 212, 212);
+    border-radius: 2px;
+}
+
+#first{
+    background-image: url("img/asset/arrowLL.png");
+}
+
+#back{
+    background-image: url("img/asset/arrowL.png");
+}
+
+#forward{
+    background-image: url("img/asset/arrowR.png");
+}
+
+#last{
+    background-image: url("img/asset/arrowRR.png");
+}

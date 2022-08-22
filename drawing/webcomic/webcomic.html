@@ -7,7 +7,21 @@
     <link rel = "stylesheet" type = "text/css" href = "webcomic.css">
 </head>
 <body>
-    
+    <div id = "main">
+        <div id = "controlBox">
+            <div id = "controls">
+                <button type = "button" class = "controls" id = "first" onclick = "newPage(0)">.</button>
+                <button type = "button" class = "controls" id = "back" onclick = "newPage(false)">.</button>
+                <button type = "button" class = "controls" id = "forward" onclick = "newPage(true)">.</button>
+                <button type = "button" class = "controls" id = "last" onclick = "newPage(comicPages.length - 1)">.</button>
+            </div>
+            <p id = "pageCount">Click the buttons to change the page.</p>
+        </div>
+
+        <div id = "content"></div>
+    </div>
+
+    <script src = "data.js" defer></script>
     <script src = "main.js" defer></script>
 </body>
 </html>
