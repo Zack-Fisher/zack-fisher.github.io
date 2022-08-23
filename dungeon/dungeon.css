@@ -10,6 +10,27 @@ img{
     position: absolute;
     border: 2px dotted black;
     background-color: gray;
+    z-index: 0;
+}
+
+#room{
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    border: 2px dotted rgb(161, 22, 22);
+    background-color: rgb(19, 18, 18);
+    z-index: 6;
+    visibility: hidden;
+}
+
+#cutscene{
+    position: absolute;
+    left: 50px;
+    top: 30px;
+    border: 2px dotted rgb(94, 168, 34);
+    background-color: rgb(19, 18, 18);
+    z-index: 7;
+    visibility: hidden;
 }
 
 #minimap{
@@ -18,6 +39,7 @@ img{
     position: absolute;
     border: 2px dotted black;
     background-color: rgb(53, 50, 50);
+    z-index: 1;
 }
 
 #text{
@@ -26,6 +48,7 @@ img{
     position: absolute;
     border: 2px dotted black;
     background-color: rgb(177, 167, 167);
+    z-index: 2;
 }
 
 #stats{
@@ -35,6 +58,7 @@ img{
     border: 2px dashed red;
     background-color: gray;
     position:absolute;
+    z-index: 3;
 }
 
 #buttons{

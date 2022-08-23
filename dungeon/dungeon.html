@@ -25,6 +25,9 @@
 <body id = "body">
     <canvas id = "worldmap" width = "500" height = "500"></canvas>
 
+    <canvas id = "room" width = "700" height = "550"></canvas>
+
+    <canvas id = "cutscene" width = "1000" height = "600"></canvas>
 
     <canvas id = "screen" width = "600" height = "480"></canvas>
 
@@ -60,6 +63,10 @@
         <button onclick = "changeState('isWorldmap')">isWorldmap</button>
         <br>
         <button onclick = "changeState('isExplore')">isExplore</button>
+        <br>
+        <button onclick = "changeState('isRoom')">isRoom</button>
+        <br>
+        <button onclick = "changeState('isCutscene')">isCutscene</button>
         </p>
     </div>
 
@@ -102,6 +109,7 @@
 
     <!--<script src = "initialize.js" defer></script>-->
 
+    <script src = "room.js" defer></script>
     <script src = "playerData.js" defer></script>
     <script src = "enemyData.js" defer></script>
     <script src = "mapData.js" defer></script>

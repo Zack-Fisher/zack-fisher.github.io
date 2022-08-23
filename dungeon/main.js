@@ -73,6 +73,12 @@ function changeState(which){    //all music changes can be handled in the change
     if(isWorldmap){
         playMusic("industrialWorld");
     }
+    if(isRoom){
+        playMusic("empty");
+    }
+    if(isCutscene){
+        playMusic("empty");
+    }
 }
 
 function getPlayerPosition(){

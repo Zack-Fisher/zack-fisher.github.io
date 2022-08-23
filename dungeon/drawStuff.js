@@ -134,6 +134,8 @@ function drawingHandler(){
 
     //in screen
     worldmapCanvas.style.visibility = "hidden";
+    roomCanvas.style.visibility = "hidden";
+    cutsceneCanvas.style.visibility = "hidden";
     screen.fillRect(0, 0, 900, 900); //clear screen
     if(isBattle || isExplore){
         drawScreen(isColliding(1));
@@ -155,10 +157,14 @@ function drawingHandler(){
     }
 
     if(isRoom){
+        roomCanvas.style.visibility = "visible";
+        room.fillRect(0, 0, 900, 900);
         drawRoom();
     }
 
     if(isCutscene){
+        cutsceneCanvas.style.visibility = "visible";
+        cutscene.fillRect(0, 0, 900, 900);
         drawCutscene();
     }
 }
@@ -177,6 +183,12 @@ var screen = screenCanvas.getContext("2d");
 
 var worldmapCanvas = document.getElementById("worldmap");
 var worldmap = worldmapCanvas.getContext("2d");
+
+var roomCanvas = document.getElementById("room");
+var room = roomCanvas.getContext("2d");
+
+var cutsceneCanvas = document.getElementById("cutscene");
+var cutscene = cutsceneCanvas.getContext("2d");
 
 var currentMap = map.mapData;
 
