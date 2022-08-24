@@ -34,6 +34,14 @@ function useItem(item){
     }
 }
 
+function addPartyMember(){
+    //add party member to the equip <div>
+}
+
+function removePartyMember(){
+    //remove from equip <div>
+}
+
 var maxHealth = 20;
 var health = maxHealth;
 

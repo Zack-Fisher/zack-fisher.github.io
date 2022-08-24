@@ -76,3 +76,14 @@ img{
     background-color: rgb(19, 18, 18);
     z-index: 5;
 }
+
+#equips{
+    background-color: black;
+}
+
+.party{
+    width: 200px;
+    height: 200px;
+    background-color: orange;
+    border: 2px rgb(82, 8, 57);
+}
