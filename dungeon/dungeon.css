@@ -78,12 +78,20 @@ img{
 }
 
 #equips{
+    position: absolute;
+    left: 1010px;
+    top: 10px;
     background-color: black;
 }
 
 .party{
     width: 200px;
-    height: 200px;
+    height: 350px;
     background-color: orange;
-    border: 2px rgb(82, 8, 57);
+    border: 2px dotted rgb(82, 8, 57);
+}
+
+.partyDisplay{
+    float: left;
+    background-color: blue;
 }

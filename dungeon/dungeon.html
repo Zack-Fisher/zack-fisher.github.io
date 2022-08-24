@@ -67,13 +67,12 @@
         <button onclick = "changeState('isRoom')">isRoom</button>
         <br>
         <button onclick = "changeState('isCutscene')">isCutscene</button>
+        <br>
+        <button onclick = "addPartyMember(test)">add test partymem</button>
         </p>
     </div>
 
     <div id = "equips">
-        <div id = "mainChar" class = "party">
-            
-        </div>
 
         <!--add more at runtime-->
     </div>
@@ -100,6 +99,10 @@
     <!--overworld-->
     <img src = "dungeonImg/worldmap/cursor.gif" id = "cursor" alt = "cursor">
 
+    <!--equips-->
+    <img src = "dungeonImg/portraits/char/testPortrait.png" id = "testPortrait" alt = "testPortrait">
+    <img src = "dungeonImg/portraits/accessories/testPortraitAccessory.png" id = "testPortraitAccessory" alt = "testPortraitAccessory">
+
 
 
     <!--audio assets-->
@@ -117,6 +120,9 @@
 
     <!--<script src = "initialize.js" defer></script>-->
 
+    <script src = "images.js" defer></script>
+    <script src = "itemData.js" defer></script>
+    <script src = "partymembers.js" defer></script>
     <script src = "room.js" defer></script>
     <script src = "playerData.js" defer></script>
     <script src = "enemyData.js" defer></script>

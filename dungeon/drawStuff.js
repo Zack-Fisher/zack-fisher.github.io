@@ -129,6 +129,25 @@ function drawTextScreen(textString){
     screen.fillText(textString, 10, 10);
 }
 
+function drawEquips(){
+    for (let chars of partyMembers){
+        chars.display.drawImage(testPortraitImg, 0, 0);
+
+        chars.display.drawImage(testPortraitAccessoryImg, 0, 0);
+        
+        for (var i = 0; i < equipInventory.length; i++){    //TODO: finish equipInventory stuff
+            chars.equipList.remove(i);
+        }
+    
+        for (var i = 0; i < equipInventory.length; i++){
+            var itemOption = document.createElement("option");
+            itemOption.innerHTML = equipInventory[i].name;
+            itemOption.value = equipInventory[i].image;
+            chars.equipList.add(itemOption);
+        }
+    }
+}
+
 function drawingHandler(){
     //all drawing must happen here (except for text);
 
@@ -167,6 +186,9 @@ function drawingHandler(){
         cutscene.fillRect(0, 0, 900, 900);
         drawCutscene();
     }
+
+    //in equips menu
+    drawEquips();
 }
 
 var minimapCanvas = document.getElementById("minimap");
@@ -198,17 +220,7 @@ var worldmapScrollThreshold = 0.75;
 var worldmapWidth = 500;
 var worldmapHeight = 500;
 
-//images for the screen
 
-//dungeon
-var closedImg = document.getElementById("closed");
-var openImg = document.getElementById("open");
-var arrowImg = document.getElementById("arrow");
-var chestImg = document.getElementById("chest");
-var stairsImg = document.getElementById("stairs");
-
-//worldmap
-var cursorImg = document.getElementById("cursor");
 
 
 var healthParagraph = document.getElementById("health");

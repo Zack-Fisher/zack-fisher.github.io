@@ -267,3 +267,7 @@ document.addEventListener("keydown", (e) => {   //different key handlers for eve
 });
 
 setInterval(drawingHandler, 30);
+
+for (let member of partyMembers){
+    addPartyMember(member);
+}
