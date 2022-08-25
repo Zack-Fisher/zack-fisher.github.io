@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graph</title>
+    <link rel = "stylesheet" type = "text/css" href = "graph.css">
+</head>
+<body>
+    <canvas id = "graph" width = "600" height = "600"></canvas>
+
+    <label>origin X <input id = "originX" type = "text" value = "50" placeholder="50"></label>
+    <br>
+    <label>origin Y <input id = "originY" type = "text" value = "50" placeholder="50"></label>
+    <br>
+    <label>scale <input id = "scale" type = "text" value = "6" placeholder="6"></label>
+    <br>
+    <label>xSize <input id = "xSize" type = "text" value = "100" placeholder="100"></label>
+    <br>
+    <label>ySize <input id = "ySize" type = "text" value = "100" placeholder="100"></label>
+    <br>
+
+    <br>
+    <label>slope <input id = "slope" type = "text"></label>
+    <br>
+    <button onclick = "updateGraph()">graph func</button>
+
+    <script src = "drawGraph.js" defer></script>
+    <script src = "graphMain.js" defer></script>
+</body>
+</html>

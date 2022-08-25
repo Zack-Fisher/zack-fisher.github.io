@@ -78,6 +78,15 @@ function changeState(which){    //all music changes can be handled in the change
     }
     if(isCutscene){
         playMusic("empty");
+
+        var elementList = [];
+        elementList = Array.from(document.getElementsByTagName("canvas"));
+        elementList.splice(cutsceneCanvas, 1);
+        console.log(elementList);
+        for (let elm of elementList){
+            elm.className += " opacityAnimLess";
+        }
+        body.style.backgroundColor = "black";
     }
 }
 

@@ -95,3 +95,23 @@ img{
     float: left;
     background-color: blue;
 }
+
+.opacityAnimLess{
+    animation-name: opacityLess;
+    animation-duration: 2s;
+}
+
+.opacityAnimMore{
+    animation-name: opacityMore;
+    animation-duration: 2s;
+}
+
+@keyframes opacityLess {
+    from {opacity: 1;}
+    to {opacity: 0.5;}
+}
+
+@keyframes opacityMore {
+    from {opacity: 0.5;}
+    to {opacity: 1;}
+}
