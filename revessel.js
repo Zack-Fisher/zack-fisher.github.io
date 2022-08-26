@@ -71,18 +71,27 @@ function changeAnimFrame(){
 }
 
 function playerCollision(){
-	'use strict';
 	var isColliding = false;
 	hitList = [];
 	for (var i = 0; i < collisionObjects.length; i++)
 		{
-			if (!(((yPosition + playerHeight) < (collisionObjects[i].style.top)) || (yPosition > (collisionObjects[i].style.top + collisionObjects[i].style.height)) || ((xPosition + playerWidth) < collisionObjects[i].style.left) || (xPosition > (collisionObjects[i].style.left + collisionObjects[i].style.width)))){
-				hitList.push(collisionObjects[i]);
-				isColliding = true;
-			}
+			var current = collisionObjects[i];
+			if(
+				(((current.style.left < xPosition + xPlayerHitboxOffset || current.style.left + current.style.width > xPosition + xPlayerHitboxOffset) ||
+				(current.style.left < xPosition + xPlayerHitboxOffset + playerHitboxWidth || current.style.left + current.style.width > xPosition + xPlayerHitboxOffset + playerHitboxWidth)) ||
+				(xPosition + xPlayerHitboxOffset < current.style.left || xPosition + xPlayerHitboxOffset + playerHitboxWidth > current.style.left)) &&
+				(current.style.top < yPosition + yPlayerHitboxOffset || current.style.top + current.style.height > yPosition + yPlayerHitboxOffset)
+				)
+				{
+					//console.log("colliding");
+					hitList.push(current);
+					
+					//isColliding = true;
+				}
+				console.log(current.style.top < yPosition + yPlayerHitboxOffset); //this check works?
 		}
 	for (i = 0; i < hitList.length; i++){
-		console.log("colliding");
+		//handler here
 	} 
 	console.log(hitList);
 	return isColliding;
@@ -93,7 +102,7 @@ function resetPosition(){
 	yPosition = 0;
 }
 
-var collisionObjects = [document.getElementById("collision")];
+var collisionObjects = document.getElementsByClassName("collision");
 var xSpeed = 5;
 var ySpeed = 4;
 var xSpeedLimit = 15;
@@ -107,7 +116,10 @@ var playerWidth = player.style.width;
 var xPosition = 0;
 var yPosition = 0;
 var xOffset = 0;
+var xPlayerHitboxOffset = 32;
 var yOffset = 0;
+var yPlayerHitboxOffset = 0;
+var playerHitboxWidth = 16;
 var moveIDList = new Array();
 
 document.addEventListener("keydown", (e) => {
@@ -120,7 +132,6 @@ document.addEventListener("keydown", (e) => {
 	}
 
 	if (isFound == false){
-		console.log("moving");
 		moveIDList.push(e.key);
 		moveIDList.push(setInterval(move, 37, e.key));
 	}
