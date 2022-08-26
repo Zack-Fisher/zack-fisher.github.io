@@ -18,13 +18,22 @@ function move(key){
 					tempY -= ySpeed;
 					animatePlayer(key);
 					break;
+				case ' ':
+					if(canSpace == true){
+						if(playerCollision() == true){
+							canSpace = false;
+							setTimeout(() => {canSpace = true; console.log("trueset");}, spaceCooldown);
+							interact();
+						}
+					}
+					break;
 				default:
 					break;
 			}		
 	}
 	
 function actuallyMove(){
-		if (playerCollision() == false){
+		if (true){
 			if (Math.abs(tempY) > ySpeedLimit){
 				tempY = ((Math.abs(tempY) / tempY) * ySpeedLimit);
 			}
@@ -70,31 +79,65 @@ function changeAnimFrame(){
 	}
 }
 
+function scrollCamera(){
+	let container = document.getElementById("container");
+	let width = window.innerWidth;
+	let height = window.innerHeight;
+	let newXScroll = 0;
+	let newYScroll = 0;
+
+	if (xPosition > (width * 0.5)){
+		newXScroll = xPosition + (width * 0.25);
+	}
+
+	if (yPosition > (height * 0.5)){
+		newYScroll = yPosition + (height * 0.5);
+	}
+
+	container.setAttribute("style", "width: " + newXScroll + "px");
+	container.setAttribute("style", "height: " + newYScroll + "px");
+
+	window.scrollTo(newXScroll, newYScroll);
+}
+
 function playerCollision(){
 	var isColliding = false;
 	hitList = [];
-	for (var i = 0; i < collisionObjects.length; i++)
+	for (let char of charInScene)
 		{
-			var current = collisionObjects[i];
+			let current = char.div;	//.style only gets the elements appended IN html, need to use this.
+			let currentX = parseInt(window.getComputedStyle(current).left);
+			let currentY = parseInt(window.getComputedStyle(current).top);
+			let currentWidth = parseInt(window.getComputedStyle(current).width);
+			let currentHeight = parseInt(window.getComputedStyle(current).height);
 			if(
-				(((current.style.left < xPosition + xPlayerHitboxOffset || current.style.left + current.style.width > xPosition + xPlayerHitboxOffset) ||
-				(current.style.left < xPosition + xPlayerHitboxOffset + playerHitboxWidth || current.style.left + current.style.width > xPosition + xPlayerHitboxOffset + playerHitboxWidth)) ||
-				(xPosition + xPlayerHitboxOffset < current.style.left || xPosition + xPlayerHitboxOffset + playerHitboxWidth > current.style.left)) &&
-				(current.style.top < yPosition + yPlayerHitboxOffset || current.style.top + current.style.height > yPosition + yPlayerHitboxOffset)
+				(((currentX < xPosition + xPlayerHitboxOffset && currentX + currentWidth > xPosition + xPlayerHitboxOffset) ||
+				(currentX < xPosition + xPlayerHitboxOffset + playerHitboxWidth && currentX + currentWidth > xPosition + xPlayerHitboxOffset + playerHitboxWidth)) ||
+				(xPosition + xPlayerHitboxOffset < currentX && xPosition + xPlayerHitboxOffset + playerHitboxWidth > currentX)) &&
+				(currentY < yPosition + yPlayerHitboxOffset && currentY + currentHeight > yPosition + yPlayerHitboxOffset)
 				)
 				{
 					//console.log("colliding");
-					hitList.push(current);
+					hitList.push(char);
 					
-					//isColliding = true;
+					isColliding = true;
 				}
-				console.log(current.style.top < yPosition + yPlayerHitboxOffset); //this check works?
 		}
-	for (i = 0; i < hitList.length; i++){
-		//handler here
-	} 
 	console.log(hitList);
 	return isColliding;
+}
+
+function setupScene(){
+	for (let char of charInScene){
+		let container = document.getElementById("container");
+		let charDiv = document.createElement("div");
+
+		charDiv.className = "collision";
+		charDiv.id = char.name;
+
+		char.div = charDiv;
+		container.append(charDiv);
+	}
 }
 
 function resetPosition(){
@@ -102,14 +145,15 @@ function resetPosition(){
 	yPosition = 0;
 }
 
-var collisionObjects = document.getElementsByClassName("collision");
+var charInScene = [npc1];
+setupScene();
 var xSpeed = 5;
 var ySpeed = 4;
 var xSpeedLimit = 15;
 var ySpeedLimit = 13;
 var tempX = 0;
 var tempY = 0;
-var hitList = [];
+var hitList = [];	//list of chars player is colliding with
 var player = document.getElementById("player");
 var playerHeight = player.style.height;
 var playerWidth = player.style.width;
@@ -121,6 +165,9 @@ var yOffset = 0;
 var yPlayerHitboxOffset = 0;
 var playerHitboxWidth = 16;
 var moveIDList = new Array();
+
+var canSpace = true;	//spacebar cooldown
+var spaceCooldown = 1000;	//in milliseconds
 
 document.addEventListener("keydown", (e) => {
 	var isFound = false;
@@ -150,6 +197,6 @@ document.addEventListener("keyup", (e) => {
 	
 setInterval(() => {
 	actuallyMove();
+	changeAnimFrame();
+	scrollCamera();
 }, 30);
-
-setInterval(changeAnimFrame, 30);
