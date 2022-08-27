@@ -10,23 +10,16 @@
     <link href="/revessel.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <h1> THE UNOFFICIAL RE:VESSEL FANZONE! </h1>
-    <p> 
-    Calling all fans of <a href = "https://saghaleylewis.itch.io/revessel">'Re:Vessel'</a> by <a href = "https://2022.chemeketa.vc/graduates/profile.php?saghaley_lewis">Saghaley Wayne Lewis</a>!
-    </p>
-	<p id = "results"></p>
-     <br>
-  <p id = "tutorial">Use the WASD keys.</p>
-  <button onclick = "resetPosition()">reset</button>
-    <em><br>
-    </em>
-    <div id="container">
-      <div id="player"></div>
-
+    <div id = "background">
+      <div id="container">
+        <!--character divs are added at runtime-->
+      </div>
     </div>
+  <button onclick = "resetPosition()">reset</button>
   <script src = "draw.js" defer></script>
   <script src = "charData.js" defer></script>
   <script src = "npc.js" defer></script>
+  <script src = "testAreaData.js" defer></script>
   <script src = "revessel.js" defer></script>
   </body>
 </html>
