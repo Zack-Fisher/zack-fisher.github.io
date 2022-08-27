@@ -31,6 +31,7 @@ h1{
 
 #npc1{
   left: 400px;
+  top: 400px;
 }
 
 .collision{
@@ -50,4 +51,13 @@ h1{
   width: 200px;
   height: 100px;
   background-color: blueviolet;
+  animation-name: floatUp;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+@keyframes floatUp {
+  from {top: -200px}
+  to {top: -250px}
 }
