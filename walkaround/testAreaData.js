@@ -6,6 +6,6 @@ var charInScene = [player, npc1];   //make sure player is in index 0
 var background = document.getElementById("background");
 var container = document.getElementById("container");
 var img = document.createElement("img");
-img.src = "/asset/testArea1.png";
+img.src = "asset/testArea1.png";
 img.style.zIndex = "-100";
 background.insertBefore(img, container);

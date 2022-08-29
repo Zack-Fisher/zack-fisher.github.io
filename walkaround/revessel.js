@@ -2,23 +2,23 @@
 
 function move(key){
 		switch(key){
-				case 'w'://w key
+				case upKey://w key
 					tempY += ySpeed;
 					animatePlayer(key);
 					break;
-				case 'a'://a key
+				case leftKey://a key
 					tempX -= xSpeed;
 					animatePlayer(key);
 					break;
-				case 'd'://d key
+				case rightKey://d key
 					tempX += xSpeed;
 					animatePlayer(key);
 					break;
-				case 's'://s key
+				case downKey://s key
 					tempY -= ySpeed;
 					animatePlayer(key);
 					break;
-				case ' ':
+				case interactKey:	//interact key
 					if(canSpace == true){
 						if(playerCollision() == true){
 							canSpace = false;
@@ -26,6 +26,9 @@ function move(key){
 							interact();
 						}
 					}
+					break;
+				case controlsKey:	//open controls
+					openControls();
 					break;
 				default:
 					break;
@@ -61,13 +64,8 @@ function scrollCamera(){
 	let newXScroll = 0;
 	let newYScroll = 0;
 
-	if (xPosition > (width * 0.5)){
-		newXScroll = width * 0.5;
-	}
-
-	if (yPosition > (height * 0.5)){
-		newYScroll = height * 0.5;
-	}
+	newXScroll = xPosition - (width / 2);
+	newYScroll = yPosition - (height / 2);
 
 	//container.setAttribute("style", "width: " + newXScroll + "px");
 	//container.setAttribute("style", "height: " + newYScroll + "px");
@@ -147,6 +145,7 @@ function resetPosition(){
 }
 
 setupScene();
+loadControls();
 var xSpeed = 5;
 var ySpeed = 4;
 var xSpeedLimit = 15;
@@ -185,7 +184,7 @@ document.addEventListener("keydown", (e) => {
 //a list with alternating key and id, ['w', id1, 'a', id2, ...]
 
 document.addEventListener("keyup", (e) => {
-	for (var i = 0; i < moveIDList.length; i++){
+	for (var i = 0; i < moveIDList.length; i++){	//movement is bugged when testing in Falkon???
 		if (moveIDList[i] == e.key){
 			clearInterval(moveIDList[i + 1]); //clear interval with ID next in list
 			moveIDList.splice(i, 2);

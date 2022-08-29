@@ -3,16 +3,16 @@
 //npc animation handling
 function animatePlayer(key){
     switch(key){
-            case 'w':
+            case upKey:
                 yOffset = 0;
                 break;
-            case 'a':
+            case leftKey:
                 yOffset = 192;
                 break;
-            case 'd':
+            case rightKey:
                 yOffset = 64;
                 break;
-            case 's':
+            case downKey:
                 yOffset = 128;
                 break;
         }

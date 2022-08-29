@@ -29,14 +29,14 @@ h1{
   width: 48px;
   height: 64px;
   z-index: 20;
-  background: url("/asset/resaWalksprites.png") no-repeat -48px -128px;
+  background: url("asset/resaWalksprites.png") no-repeat -48px -128px;
 }
 
 #npc1{
   width: 48px;
   height: 64px;
   z-index: 20;
-  background: url("/asset/resaTreeWalksprites.png") no-repeat -48px -128px; 
+  background: url("asset/resaTreeWalksprites.png") no-repeat -48px -128px; 
 }
 
 .collision{
