@@ -107,23 +107,6 @@ function drawMinimap(){
     //drawArrow();
 }
 
-function drawText(textString){
-    text.fillStyle = "white";
-    text.fillRect(0, 0, 900, 900);
-    text.fillStyle = "blue";
-
-    textShown.push(textString);
-
-    if (textShown.length >= 8){
-        textShown.shift();
-    }
-
-    for (var i = 0; i < textShown.length; i++){
-        text.font = "20px Times New Roman";
-        text.fillText(">>", 5, 18 + (i * 20));
-        text.fillText(textShown[i], 20, 18 + (i * 20)); //have the max width change wrt string size
-    }
-}
 
 function drawTextScreen(textString){
     screen.fillText(textString, 10, 10);

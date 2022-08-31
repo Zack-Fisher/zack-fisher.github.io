@@ -55,6 +55,7 @@ document.addEventListener("keydown", (e) => {
     else{
         switch(e){
             case controlsKey:
+                window.history
                 break;
             default:
                 break;
