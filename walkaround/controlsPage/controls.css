@@ -1,0 +1,12 @@
+body{
+    background-color: purple;
+}
+
+.control{
+    background-color: blue;
+    border: 3px double black;
+}
+
+#buttons{
+    background-color:violet;
+}

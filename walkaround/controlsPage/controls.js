@@ -33,7 +33,12 @@ function removeControls(){
     for (let key of keyList){
         localStorage.removeItem(key);
     }
+
     loadDefaults();
+    for(let key of keyList){
+        let target = document.getElementById(key);
+        target.innerHTML = window[key];
+    }
 }
 
 function setKey(keyName, keyValue){

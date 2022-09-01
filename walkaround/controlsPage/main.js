@@ -5,7 +5,7 @@ function addButton(keyName){
     button.type = "button";
     button.id = keyName;
     button.className = "control";
-    button.innerHTML = keyName;
+    button.innerHTML = window[keyName];
 
     target.append(button);
     target.append(document.createElement("br"));
@@ -33,13 +33,34 @@ function buttonPress(keyName){
     button.innerHTML = "...";
 }
 
+function checkSame(keyName, pressedKey){
+
+    for (let key of keyList){
+        if (pressedKey == window[key]){
+            if(key != keyName){
+                isChanging = true;
+                alert("you cannot overlap key mappings.");
+                return false;
+            }
+        }
+    } 
+    return true;
+}
+
 function buttonPressFinish(givenKey){   //i can probably do this cleaner but it works
     let button = document.getElementById(currKey);
     let paragraph = document.getElementById(currKey + "Paragraph");
     let changingParagraph = document.getElementById("changingText");
 
-    button.innerHTML = currKey;
-    
+    if(checkSame(currKey, givenKey)){
+        changingParagraph.innerHTML = "";
+
+        localStorage.setItem(currKey, givenKey);
+
+        button.innerHTML = givenKey;
+
+        loadControls();
+    }
 }
 
 var isChanging = false;
@@ -47,15 +68,18 @@ var currKey = null;
 
 loadControls();
 
+console.log(controlsKey);
+
 document.addEventListener("keydown", (e) => {
     if (isChanging){
         isChanging = false;
-        buttonPressFinish(e);
+        buttonPressFinish(e.key);
     }
     else{
-        switch(e){
+        switch(e.key){
             case controlsKey:
-                window.history
+                console.log('t');
+                window.history.back();
                 break;
             default:
                 break;
