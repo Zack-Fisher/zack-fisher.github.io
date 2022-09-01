@@ -7,15 +7,41 @@
     <style>
         body{
             background-color: gray;
+            margin:0;
+            padding:0;
+        }
+        .letter{
+            position:relative;
+            left:0px;
+            top:0px;
+            float:left;
+            margin-bottom: 0px;
+            display: flex;
+            animation-name: shake;
+            animation-duration: 0.6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
         }
         #testContainer{
+            position: absolute;
+            top:200px;
+            left:200px;
+            float:left;
             background-color: brown;
-            width: "200px";
-            height: "100px";
+            width: 200px;
+            height: 100px;
         }
         #test{
             background-color: black;
             border: 2px dotted green;
+        }
+        @keyframes shake{
+            0% {left: -5px}
+            55% {
+                left: 5px;
+                top: 9px;
+            }
+            100% {left: -5px}
         }
     </style>
 </head>

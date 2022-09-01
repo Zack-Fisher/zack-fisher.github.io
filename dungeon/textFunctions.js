@@ -1,5 +1,5 @@
 function clearTextbox(container, color = "white"){
-    let elmList = container.getElementsByName('div');
+    let elmList = container.getElementsByTagName('div');
     for (let elm of elmList){
         elm.remove();
     }
@@ -10,14 +10,18 @@ function drawText(currText, container){ //container is a div
     for (let i = 0; i < textLen; i++){
         let letter = currText[i];
 
+        let letterDiv = document.createElement('div');
         let letterImg = document.createElement('img');
 
         letterImg.src = "letters/" + letter + ".png";
         console.log(letterImg.src);
-        letterDiv.className = i + '';
+        letterDiv.id = container.id + i; //ex: testContainer22 is the 23rd character in testContainer
+        letterDiv.className = "letter";
 
-        letterDiv.append(letterImg);
-        container.append(letterDiv);
+        setTimeout(() => {
+            letterDiv.append(letterImg);
+            container.append(letterDiv);
+        }, i * 50);  
     }
 }
 
