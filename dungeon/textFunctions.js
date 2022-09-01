@@ -5,65 +5,121 @@ function clearTextbox(container, color = "white"){
     }
 }
 
+function parseString(str){
+    let specialList = cleanText(str);   //"<" is 0, "*" is 1, normal char is 22
+
+    let isShake = false;
+    let isFlash = false;
+
+    let filterList = [];
+    let listLength = specialList.length;
+    for(let i = 0; i < listLength; i++){
+        switch(specialList[i]){
+            case 0:
+                isShake = !isShake;
+                break;
+            case 1:
+                isFlash = !isFlash;
+                break;
+            default:
+                break;
+        }
+
+        let obj = {};
+        obj["index"] = i;
+
+        let filtersAdded = 0;
+
+        if (isShake){
+            obj['filter' + filtersAdded] = "shake";
+            console.log(obj);
+            filtersAdded++;
+        }
+
+        if (isFlash){
+            obj['filter' + filtersAdded] = "flash";
+            console.log(obj);
+            filtersAdded++;
+        }
+
+        filterList.push(obj);
+    }
+    return filterList;
+}
+
+function cleanText(str){    //returns string without special characters.
+    let specLen = specialChars.length;
+    let specialIndexes = [];
+
+    let strArray = [];
+
+    let len = str.length;
+    for(let i = 0; i < len; i++){
+        strArray[i] = str[i];   //converting the string into a proper array
+    }
+
+    for(let i = 0; i < len; i++){
+        for(let j = 0; j < specLen; j++){
+            if(strArray[i] == specialChars[j]){
+                specialIndexes[i] = j;
+            }
+        }
+        if(specialIndexes[i] == undefined){
+            specialIndexes[i] == 22;
+        }
+    }
+
+    return specialIndexes;
+}
+
+function addAnimation(charDiv, animName){
+    switch (animName){
+        case "shake":
+            charDiv.className += " " + animName;
+            return charDiv;
+        case "flash":
+            console.log(charDiv.childNodes);
+            charDiv.childNodes[0].className = animName; //apply certain effects to images, not divs
+            return charDiv;
+    }
+}
+
 function drawText(currText, container){ //container is a div
+    let filterList = parseString(currText);
     let textLen = currText.length;
     for (let i = 0; i < textLen; i++){
         let letter = currText[i];
 
-        let letterDiv = document.createElement('div');
-        let letterImg = document.createElement('img');
+        let skip = false;
 
-        letterImg.src = "letters/" + letter + ".png";
-        console.log(letterImg.src);
-        letterDiv.id = container.id + i; //ex: testContainer22 is the 23rd character in testContainer
-        letterDiv.className = "letter";
+        let specLen = specialChars.length;
+        for(let j = 0; j < specLen; j++){   //do not render specialChars.
+            if(letter == specialChars[j]){
+                skip = true;
+            }
+        }
 
-        setTimeout(() => {
+        if(skip == false){
+            let letterDiv = document.createElement('div');
+            let letterImg = document.createElement('img');
+
+            letterImg.src = "letters/" + letter + ".png";
+            letterDiv.id = container.id + i; //ex: testContainer22 is the 23rd character in testContainer
+            letterDiv.className = "letter";
             letterDiv.append(letterImg);
-            container.append(letterDiv);
-        }, i * 50);  
+
+            let filters = filterList[i];
+            for(let filter in filters){
+                if(typeof filter != "num"){
+                    addAnimation(letterDiv, filters[filter]);
+                }
+            }
+
+            setTimeout(() => {
+                container.append(letterDiv);
+            }, i * 50); 
+        } 
     }
 }
 
-// function isWordWrap(currText, charIndex, width, spacing, line){
-//     //if word goes past the width of the canvas, write to the next vertical line.
-//     let nextSpaceIndex = currText.indexOf(' ', charIndex);
-
-//     if (nextSpaceIndex * spacing > width){
-//         let newString = currText;
-//         console.log(newString);
-//         newString = newString.splice(charIndex, 0, " ");    //splice in a bunch of spaces to make the words wrap
-//         return newString;
-//     }
-//     return line;
-// }
-
-// //renderText is not meant for direct calls.
-// function renderText(currText, verticalSpacing, charSpacing, charIndex, textCanvas, textColor, font, fontSize, target, width){   //handles locating and parsing, use symbols to signal
-//     let line = Math.floor(((charIndex * charSpacing)) / width) + 1;   //which vertical line to write to.
-//     let xOffset = (charIndex * charSpacing) % width;
-
-//     currText = isWordWrap(currText, charIndex, width, charSpacing, line);
-
-
-//     target.fillStyle = textColor;
-//     target.font = fontSize + "px " + font;
-//     target.fillText(currText[charIndex], xOffset, verticalSpacing * line);    //maybe render letter by letter?
-
-// }
-
-// //this needs to take in an actual CANVAS, not a context.
-// function drawText(textString, textCanvas, textSpeed = 50, textColor = "blue", font = "Arial", fontSize = 20){  //switch this to one line, make it print one char at a time
-//     let verticalSpacing = fontSize * 1.25;
-//     let charSpacing = fontSize * 0.6;
-
-//     let target = textCanvas.getContext("2d");
-//     let width = textCanvas.width;
-
-//     let textLength = textString.length;
-//     for (let i = 0; i < textLength; i++){
-//         setTimeout(() => {
-//             renderText(textString, verticalSpacing, charSpacing, i, textCanvas, textColor, font, fontSize, target, width);
-//         }, i * textSpeed);
-//     } 
-// }
+var specialChars = ["<", "*"];

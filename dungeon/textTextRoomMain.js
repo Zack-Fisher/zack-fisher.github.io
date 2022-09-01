@@ -3,4 +3,4 @@
 let testContainer = document.getElementById("testContainer");
 
 clearTextbox(testContainer, "black");
-drawText("AAAAAAAAAAAAAAAAAAAAAAA", testContainer);
+drawText("AAAAAAAAA<AA<AAAAAA*AAAA*AA", testContainer);
