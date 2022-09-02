@@ -280,3 +280,5 @@ setInterval(drawingHandler, 30);
 for (let member of partyMembers){
     addPartyMember(member);
 }
+
+dragInit();
