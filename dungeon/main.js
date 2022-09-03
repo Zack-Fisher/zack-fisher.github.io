@@ -234,11 +234,18 @@ function interact(){
     }   
 }
 
+//main states
 var isBattle = false;
 var isExplore = true;
 var isWorldmap = false;
 var isRoom = false;
 var isCutscene = false;
+
+//kinda states
+var isTyping = false;
+var isCtrlPressed = false;
+var isShiftPressed = false;
+
 
 var buttonParagraph = document.getElementById("buttons");
 
@@ -257,23 +264,77 @@ var playerSpeed = 5;
 
 //for cutscene movement
 
+document.getElementById('container').addEventListener("click", () => {
+    isTyping = false;
+    console.log("f");
+}, true);
+
+ide.addEventListener("click", () => {
+    isTyping = true;
+    console.log("t");
+}, true);
+
 document.addEventListener("keydown", (e) => {   //different key handlers for every state
-    if (isBattle || isExplore){
-        move(e.key);    //move with wasd
+    if(e.key == "Control"){
+        isCtrlPressed = true;
+    }
+    if(e.key == "Shift"){
+        isShiftPressed = true;
     }
 
-    if(isWorldmap){
-        moveWorldmap(e.key);
-    }
+    if(!isTyping){
+        if (isBattle || isExplore){
+            move(e.key);    //move with wasd
+        }
 
-    if(isRoom){
-        roomKeyHandler(e.key);
-    }
+        if(isWorldmap){
+            moveWorldmap(e.key);
+        }
 
-    if(isCutscene){
-        cutsceneKeyHandler(e.key);
+        if(isRoom){
+            roomKeyHandler(e.key);
+        }
+
+        if(isCutscene){
+            cutsceneKeyHandler(e.key);
+        }
+    }
+    else{
+        switch(e.key){
+            case "Enter":
+                if(!isCtrlPressed){
+                    newLine();
+                }
+                else{
+                    send();
+                }
+                break;
+            case "Delete":
+                clearIDE();
+                break;
+            case "Backspace":
+                backspace();
+                break;
+            default:
+                type(e.key);
+                console.log(e.key);
+                break;
+        }
     }
 });
+
+document.addEventListener("keyup", (e) => {
+    switch(e.key){
+        case "Control":
+            isCtrlPressed = false;
+            break;
+        case "Shift":
+            isShiftPressed = false;
+            break; 
+        default:
+            break;
+    }
+}); 
 
 setInterval(drawingHandler, 30);
 
@@ -282,3 +343,8 @@ for (let member of partyMembers){
 }
 
 dragInit();
+
+// setInterval(() => {
+//     console.log(isCtrlPressed, isShiftPressed);
+// }, 50);
+//for debugging

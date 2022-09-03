@@ -9,10 +9,6 @@ p{
     margin:0;
 }
 
-img{
-    visibility: hidden;
-}
-
 #screen{
     position: absolute;
     border: 2px dotted black;
@@ -99,6 +95,21 @@ img{
     z-index: 200;
 }
 
+#ide{
+    position:absolute;
+    left:1000px;
+    top:400px;
+    width:500px;
+    height:400px;
+    background-color: rgb(78, 74, 74);
+    border: 2px dotted green;
+    z-index: 1000;
+}
+
+.hidden{
+    visibility:hidden;
+}
+
 .party{
     width: 200px;
     height: 350px;
@@ -129,4 +140,34 @@ img{
 @keyframes opacityMore {
     from {opacity: 0.5;}
     to {opacity: 1;}
+}
+
+/*letter css info*/
+.letter{
+    position:relative;
+    left:0px;
+    top:0px;
+    float:left;
+    margin-bottom: 0px;
+    display: flex;
+    visibility: visible;
+}
+.space{
+    width:100%;
+    height:30px;
+    display:inline;
+}
+
+/*letter effects*/
+.shake{
+    animation-name: shake;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.flash{
+    animation-name: flash;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }

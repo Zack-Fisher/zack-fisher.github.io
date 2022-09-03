@@ -130,4 +130,18 @@ function drawText(currText, container){ //container is a div
     }
 }
 
+function drawIDEText(letter, div){
+    let letterDiv = document.createElement('div');
+    let letterImg = document.createElement('img');
+    let letterCode = letter.charCodeAt(0);
+
+    letterImg.src = "letters/" + letterCode + ".png";
+    letterDiv.style.display = "inline-block";
+    letterDiv.className = "letter";
+    letterDiv.append(letterImg);
+
+    div.append(letterDiv);
+    console.log("p");
+}
+
 var specialChars = ["<", "*"];

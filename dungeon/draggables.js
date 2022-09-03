@@ -42,5 +42,3 @@ var mouseX = 0;
 var mouseY = 0;
 var isDragging;
 var currDrag;
-
-setInterval(console.log, 10, isDragging, currDrag);

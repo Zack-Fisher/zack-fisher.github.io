@@ -3,4 +3,4 @@
 let testContainer = document.getElementById("testContainer");
 
 clearTextbox(testContainer, "black");
-drawText("LSID*JVN<LIS<NVOEN*VDSVN", testContainer);
+drawText("*<Are we connected?<*", testContainer);

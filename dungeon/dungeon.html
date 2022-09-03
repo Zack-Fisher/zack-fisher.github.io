@@ -23,87 +23,92 @@
     <link type = "text/css" href = "dungeon.css" rel = "stylesheet">
 </head>
 <body id = "body">
-    <canvas id = "worldmap" width = "500" height = "500"></canvas>
+    <div id = "container">
+        <canvas id = "worldmap" width = "500" height = "500"></canvas>
 
-    <canvas id = "room" width = "700" height = "550"></canvas>
+        <canvas id = "room" width = "700" height = "550"></canvas>
 
-    <canvas id = "cutscene" width = "1000" height = "600"></canvas>
+        <canvas id = "cutscene" width = "1000" height = "600"></canvas>
 
-    <canvas id = "screen" width = "600" height = "480"></canvas>
+        <canvas id = "screen" width = "600" height = "480"></canvas>
 
-    <div id = "stats">
-        <p>
-        <p>Walk with W, A, S, D keys.</p>
-        <br>
-        <button onclick = "changeState()">change state</button>
-        <p id = "buttons"></p>
-        <br>
-        <br>
-        <p id = "interactButton"><button onclick = "interact()">interact</button></p>
-        <br>
-        
-        <br>
+        <div id = "stats">
+            <p>
+            <p>Walk with W, A, S, D keys.</p>
+            <br>
+            <button onclick = "changeState()">change state</button>
+            <p id = "buttons"></p>
+            <br>
+            <br>
+            <p id = "interactButton"><button onclick = "interact()">interact</button></p>
+            <br>
+            
+            <br>
 
-        <label>inventory
-            <select name = "inventory" id = "inventory">
+            <label>inventory
+                <select name = "inventory" id = "inventory">
 
-            </select>
-        </label>
-
-        <br>
-        <div>
-            <p id = "health"></p>
-            <p id = "mana"></p>
-        </div>
+                </select>
+            </label>
 
             <br>
-        <button onclick = "useItem(document.getElementById('inventory').value)" id = "use">use</button>
-        <button onclick = "renderInventory()">render</button>
-        <button onclick = "muteToggle()">toggle mute</button>
-        <button onclick = "changeState('isWorldmap')">isWorldmap</button>
-        <br>
-        <button onclick = "changeState('isExplore')">isExplore</button>
-        <br>
-        <button onclick = "changeState('isRoom')">isRoom</button>
-        <br>
-        <button onclick = "changeState('isCutscene')">isCutscene</button>
-        <br>
-        <button onclick = "addPartyMember(test)">add test partymem</button>
-        </p>
+            <div>
+                <p id = "health"></p>
+                <p id = "mana"></p>
+            </div>
+
+                <br>
+            <button onclick = "useItem(document.getElementById('inventory').value)" id = "use">use</button>
+            <button onclick = "renderInventory()">render</button>
+            <button onclick = "muteToggle()">toggle mute</button>
+            <button onclick = "changeState('isWorldmap')">isWorldmap</button>
+            <br>
+            <button onclick = "changeState('isExplore')">isExplore</button>
+            <br>
+            <button onclick = "changeState('isRoom')">isRoom</button>
+            <br>
+            <button onclick = "changeState('isCutscene')">isCutscene</button>
+            <br>
+            <button onclick = "addPartyMember(test)">add test partymem</button>
+            </p>
+        </div>
+
+        <div id = "ide">
+
+        </div>
+
+        <div id = "equips">
+            <!--add more at runtime-->
+        </div>
+
+        <div id = "testText" class = "draggable"></div>
+
+        <canvas id = "minimap" width = "300" height = "200"></canvas>
+
+        <canvas id = "text" width = "600" height = "130"></canvas>
     </div>
-
-    <div id = "equips">
-
-        <!--add more at runtime-->
-    </div>
-
-    <div id = "testText" class = "draggable"></div>
-
-    <canvas id = "minimap" width = "300" height = "200"></canvas>
-
-    <canvas id = "text" width = "600" height = "130"></canvas>
 
     <!--image assets for the canvas-->
     <!--room screens-->
-    <img src = "dungeonImg/closed.png" id = "closed" alt = "closed" width = "600" height="480">
-    <img src = "dungeonImg/open.png" id = "open" alt = "open">
+    <img src = "dungeonImg/closed.png" id = "closed" class = "hidden" alt = "closed" width = "600" height="480">
+    <img src = "dungeonImg/open.png" id = "open" class = "hidden" alt = "open">
 
     <!--room objects-->
-    <img src = "dungeonImg/chest.png" id = "chest" alt = "chest">
-    <img src = "dungeonImg/stairs.png" id = "stairs" alt = "stairs">
+    <img src = "dungeonImg/chest.png" id = "chest" class = "hidden" alt = "chest">
+    <img src = "dungeonImg/stairs.png" id = "stairs" class = "hidden" alt = "stairs">
 
     <!--menu images/etc-->
-    <img src = "dungeonImg/arrow.png" id = "arrow" alt = "arrow">
+    <img src = "dungeonImg/arrow.png" id = "arrow" class = "hidden" alt = "arrow">
 
     <!--monsters-->
-    <img src = "dungeonImg/monster/slimeMonster.png" id = "slime" alt = "slime">
+    <img src = "dungeonImg/monster/slimeMonster.png" id = "slime" class = "hidden" alt = "slime">
 
     <!--overworld-->
-    <img src = "dungeonImg/worldmap/cursor.gif" id = "cursor" alt = "cursor">
+    <img src = "dungeonImg/worldmap/cursor.gif" id = "cursor" class = "hidden" alt = "cursor">
 
     <!--equips-->
-    <img src = "dungeonImg/portraits/char/testPortrait.png" id = "testPortrait" alt = "testPortrait">
-    <img src = "dungeonImg/portraits/accessories/testPortraitAccessory.png" id = "testPortraitAccessory" alt = "testPortraitAccessory">
+    <img src = "dungeonImg/portraits/char/testPortrait.png" id = "testPortrait" class = "hidden" alt = "testPortrait">
+    <img src = "dungeonImg/portraits/accessories/testPortraitAccessory.png" id = "testPortraitAccessory" class = "hidden" alt = "testPortraitAccessory">
 
 
 
@@ -123,6 +128,7 @@
     <!--<script src = "initialize.js" defer></script>-->
 
     <script src = "textFunctions.js" defer></script>
+    <script src = "ide.js" defer></script>
     <script src = "draggables.js" defer></script>
     <script src = "cutsceneData.js" defer></script>
     <script src = "images.js" defer></script>
