@@ -171,3 +171,54 @@ p{
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
+/*let default text color be red, shift from there*/
+.orange{
+    filter: hue-rotate(80deg);
+}
+.yellow{
+    filter: hue-rotate(100deg);
+}
+.green{
+    filter: hue-rotate(150deg);
+}
+.blue{
+    filter: hue-rotate(220deg);
+}
+.black{
+    filter:grayscale(100%);
+}
+.blur{
+    filter: blur(5px);
+}
+.shadow{
+    filter:drop-shadow(16px, 16px, 20px, red);
+}
+
+
+
+@keyframes shake{
+    0% {left: -5px}
+    55% {
+        left: 5px;
+        top: 9px;
+    }
+    100% {left: -5px}
+}
+@keyframes flash{
+    0%{
+        filter: invert(50%);
+    }
+    50%{
+        filter: invert(100%);
+    }
+    100%{
+        filter: invert(50%);
+    }
+}
+
+#effectTesting{
+    background-color: black;
+    position:absolute;
+    top:700px;
+    z-index: 10000;
+}

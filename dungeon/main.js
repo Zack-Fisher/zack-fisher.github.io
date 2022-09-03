@@ -348,3 +348,7 @@ dragInit();
 //     console.log(isCtrlPressed, isShiftPressed);
 // }, 50);
 //for debugging
+
+var test = document.getElementById("effectTesting");
+
+drawText("<#HELP!!!! IM STUCK IN TH<E MIND DUNGEON!!!!#", test);

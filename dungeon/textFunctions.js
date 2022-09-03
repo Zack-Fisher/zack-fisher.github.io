@@ -10,6 +10,7 @@ function parseString(str){
 
     let isShake = false;
     let isFlash = false;
+    let isRed = false;
 
     let filterList = [];
     let listLength = specialList.length;
@@ -20,6 +21,9 @@ function parseString(str){
                 break;
             case 1:
                 isFlash = !isFlash;
+                break;
+            case 2:
+                isRed = !isRed;
                 break;
             default:
                 break;
@@ -38,6 +42,12 @@ function parseString(str){
 
         if (isFlash){
             obj['filter' + filtersAdded] = "flash";
+            console.log(obj);
+            filtersAdded++;
+        }
+
+        if (isRed){
+            obj['filter' + filtersAdded] = "red";
             console.log(obj);
             filtersAdded++;
         }
@@ -78,6 +88,10 @@ function addAnimation(charDiv, animName){
             charDiv.className += " " + animName;
             return charDiv;
         case "flash":
+            console.log(charDiv.childNodes);
+            charDiv.childNodes[0].className = animName; //apply certain effects to images, not divs
+            return charDiv;
+        case "red":
             console.log(charDiv.childNodes);
             charDiv.childNodes[0].className = animName; //apply certain effects to images, not divs
             return charDiv;
@@ -144,4 +158,4 @@ function drawIDEText(letter, div){
     console.log("p");
 }
 
-var specialChars = ["<", "*"];
+var specialChars = ["<", "*", "#"];
