@@ -60,6 +60,13 @@ h1{
   background-image: url("asset/games.png"); 
 }
 
+#infoWarp{
+  width: 128px;
+  height: 64px;
+  z-index: 20;
+  background-image: url("asset/info.png"); 
+}
+
 .collision{
 	height: 100px;
 	width: 100px;

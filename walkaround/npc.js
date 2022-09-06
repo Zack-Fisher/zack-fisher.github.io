@@ -12,5 +12,7 @@ function interact(which){
         case "gameWarp":
             window.location.href = "/games/games.html";
             break;
+        case "infoWarp":
+            window.location.href = "/info.html";
     }
 }
