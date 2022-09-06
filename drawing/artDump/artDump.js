@@ -6,27 +6,12 @@ for (let source in filenames){
     var image = document.createElement("img");
     image.src = "image/" + filenames[source];
     image.alt = filenames[source];
+    image.style.position = "relative";
+    image.style.left = "-20px";
+    image.style.top = "-5px";
     image.style.borderRadius = "50px";
     image.role = "button";
-    image.onclick = "alert('test')"; //this setting doesn't do anything, why?
 
-    divider.append(image);  //event listeners don't carry through appending??
+    divider.append(image);
     divider.append(document.createElement("br"));
-}
-
-for(let image of document.getElementsByTagName('img')){
-    image.className = "0";  //lol jank
-    image.addEventListener("click", () => {
-        let i = parseInt(image.className);
-        if(i % 2 == 0){
-            image.style.width = "100%";
-            image.style.height = "100%";
-        }
-        else{
-            image.style.width = "auto";
-            image.style.height = "auto";
-        }
-        i++;
-        image.className = i.toString(); //this is weird but i have to store the index with the image somehow
-    });
 }

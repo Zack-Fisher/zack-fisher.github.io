@@ -26,7 +26,37 @@ function museumButton(){
     button.style.height = "64px";
     button.style.position = "relative";
     button.style.zIndex = Number.MAX_SAFE_INTEGER;
-    button.onclick = function() { window.location.href = '/drawing/museumMain.html' };   //onclick takes in a FUNCTION, not a STRING.
+    button.onclick = function() { window.location.href = '/drawing/museumMain.html' };
+
+    navigationDiv.append(button);
+
+    appendNavigatorDiv();
+}
+
+function gameButton(){
+    let button = document.createElement("button");
+
+    button.style.backgroundImage = "url('/asset/navIcons/gameBack.png')";
+    button.style.width = "64px";
+    button.style.height = "64px";
+    button.style.position = "relative";
+    button.style.zIndex = Number.MAX_SAFE_INTEGER;
+    button.onclick = function() { window.location.href = '/games/games.html' }; 
+
+    navigationDiv.append(button);
+
+    appendNavigatorDiv();
+}
+
+function theaterButton(){
+    let button = document.createElement("button");
+
+    button.style.backgroundImage = "url('/asset/navIcons/backTheater.png')";
+    button.style.width = "64px";
+    button.style.height = "64px";
+    button.style.position = "relative";
+    button.style.zIndex = Number.MAX_SAFE_INTEGER;
+    button.onclick = function() { window.location.href = '/theater/theaterMain.html' }; 
 
     navigationDiv.append(button);
 

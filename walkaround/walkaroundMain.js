@@ -23,7 +23,7 @@ function move(key){
 						if(playerCollision() == true){
 							canSpace = false;
 							setTimeout(() => {canSpace = true;}, spaceCooldown);
-							interact();
+							interact(hitList[0]);
 						}
 					}
 					break;
@@ -48,8 +48,8 @@ function moveChars(){	//moves every character in the scene
 			char.position[0] += tempX;
 			tempX /= 1.20;
 			tempY /= 1.25;
-			char.div.style.top = char.position[1] + "px";
-			char.div.style.left = char.position[0] + "px";
+			char.button.style.top = char.position[1] + "px";
+			char.button.style.left = char.position[0] + "px";
 			//console.log(player.style.top, player.style.left, xPosition, yPosition);
 		}
 	}
@@ -87,7 +87,7 @@ function playerCollision(){	//checks collision with other npcs
 			if(char.name == "player"){
 				continue;	//skips checking collision with player and itself
 			}
-			let current = char.div;	//.style only gets the elements appended IN html, need to use this.
+			let current = char.button;	//.style only gets the elements appended IN html, need to use this.
 			let currentX = parseInt(window.getComputedStyle(current).left);
 			let currentY = parseInt(window.getComputedStyle(current).top);
 			let currentWidth = parseInt(window.getComputedStyle(current).width);
@@ -124,18 +124,24 @@ function pixelCollision(){	//checks collision with areaC.jpg pixels
 }
 
 function setupScene(){
+	let container = document.getElementById("container");
 	for (let char of charInScene){
-		let container = document.getElementById("container");
-		let charDiv = document.createElement("div");
+		let charButton = document.createElement("button");
 
-		charDiv.className = "collision";
-		charDiv.id = char.name;
-		charDiv.style.position = "relative";
-		charDiv.style.left = char.position[0] + "px";
-		charDiv.style.top = char.position[1] + "px";
+		charButton.className = "collision";
+		charButton.id = char.name;
+		charButton.style.position = "relative";
+		charButton.style.left = char.position[0] + "px";
+		charButton.style.top = char.position[1] + "px";
+		charButton.style.border = 0;
+		console.log(char.position[0] + "px", char.position[1] + "px")
 
-		char.div = charDiv;
-		container.append(charDiv);
+		charButton.onclick = function() {
+			interact(char);
+		};
+
+		char.button = charButton;
+		container.append(charButton);
 	}
 }
 

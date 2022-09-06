@@ -1,11 +1,10 @@
-function interact(){
-    switch(hitList[0].name){
+function interact(which){
+    switch(which.name){
         case "npc1":
-            let current = hitList[0];
-            drawTextbox(current);
+            drawTextbox(which);
             break;
         case "theaterWarp":
-            window.location.href = "";
+            window.location.href = "/theater/theaterMain.html";
             break;
         case "museumWarp":
             window.location.href = "/drawing/museumMain.html";

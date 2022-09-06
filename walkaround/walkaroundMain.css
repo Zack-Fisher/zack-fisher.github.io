@@ -21,8 +21,6 @@ h1{
 #container {
   left: 0px;
   top: 0px;
-  width: auto;
-  height: auto;
   position: absolute;
   background-repeat: no-repeat;
 }
@@ -71,9 +69,6 @@ h1{
 }
 
 .textbox{
-  left: 0px;
-  top: -100px;
-  position: relative;
   width: 200px;
   height: 100px;
   background-color: blueviolet;

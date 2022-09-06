@@ -27,12 +27,15 @@ if (moveIDList.length > 0){
 }
 
 function drawTextbox(whichChar){
-    let target = whichChar.div;
+    let target = whichChar.button;
 
     let textbox = document.createElement("div");
     textbox.className = "textbox";
     textbox.style.opacity = "50%";
     textbox.style.borderRadius = "2px";
+    textbox.style.position = "absolute";
+    textbox.style.left = getComputedStyle(target).left;
+    textbox.style.top = getComputedStyle(target).top;
 
     let text = document.createElement("p");
     text.innerHTML = whichChar.text;
@@ -43,5 +46,5 @@ function drawTextbox(whichChar){
     });
 
     textbox.append(text);
-    target.appendChild(textbox);
+    target.append(textbox);
 }
