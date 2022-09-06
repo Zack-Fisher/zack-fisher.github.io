@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Not Found</title>
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+      h1{
+        text-align:center;
+      }
+      p{
+        text-align: center;
+      }
+      #toHome{
+          background-image: url(/asset/toHome.png);
+          width: 64px;
+          height: 64px;
+          position:absolute;
+          left:10px;
+          top:8px;
+      }
+    </style>
   </head>
   <body>
+    <button onclick = "window.location.href = '/index.html'" id = "toHome"></button>
     <h1>Page Not Found</h1>
     <p>The requested page was not found.</p>
   </body>

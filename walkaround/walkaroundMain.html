@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Re:Vessel Fanzone</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="revessel.css" rel="stylesheet" type="text/css" media="all">
+    <link href="walkaroundMain.css" rel="stylesheet">
   </head>
   <body>
+
     <div id = "background">
       <div id="container">
         <!--character divs are added at runtime-->
@@ -17,11 +15,16 @@
     </div>
   <button onclick = "resetPosition()">reset</button>
 
+  <script src = "/navigation.js"></script>
+  <script>
+    indexButton();
+  </script>
+  
   <script src = "controlsPage/controls.js" defer></script>
   <script src = "draw.js" defer></script>
   <script src = "charData.js" defer></script>
   <script src = "npc.js" defer></script>
   <script src = "testAreaData.js" defer></script>
-  <script src = "revessel.js" defer></script>
+  <script src = "walkaroundMain.js" defer></script>
   </body>
 </html>

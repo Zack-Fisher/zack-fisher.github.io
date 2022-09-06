@@ -100,7 +100,6 @@ function playerCollision(){	//checks collision with other npcs
 				(currentY < yPosition + yPlayerHitboxOffset && currentY + currentHeight > yPosition + yPlayerHitboxOffset)
 				)
 				{
-					//console.log("colliding");
 					hitList.push(char);
 					
 					isColliding = true;
@@ -108,6 +107,7 @@ function playerCollision(){	//checks collision with other npcs
 			console.log((currentY < yPosition + yPlayerHitboxOffset && currentY + currentHeight > yPosition + yPlayerHitboxOffset));
 			console.log(currentY, currentHeight, yPosition, yPlayerHitboxOffset);
 		}
+		console.log(hitList);
 	return isColliding;
 }
 
