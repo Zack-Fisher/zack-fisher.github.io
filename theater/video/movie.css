@@ -1,0 +1,33 @@
+body{
+    color:white;
+    background-color: gray;
+    text-align: center;
+}
+
+button:hover{
+    position:relative;
+    left:0px;
+    top:0px;
+    font-size: larger;
+}
+
+#selector{
+    position:absolute;
+    left:10px;
+    top:200px;
+}
+
+#moviePlayer{
+    position:absolute;
+    left:300px;
+    top:10px;
+}
+
+@keyframes dim {
+    0%{
+        background-color:gray;
+    }
+    100%{
+        background-color: rgb(31, 31, 31);
+    }
+}

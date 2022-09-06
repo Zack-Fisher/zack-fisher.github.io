@@ -5,14 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href = "musicPlayer.css" rel = "stylesheet">
 </head>
 <body>
-    
+    <audio id = "audioPlayer" loop>
+        <source id = "audioSource" src = "songs/GrantHaterPipebomb/allyourbase.mp3">
+    </audio>
+
+    <div id = "main">
+        <div id = "selection">
+            <div id = "albums">
+
+            </div>
+            <div id = "songs">
+
+            </div>
+        </div>
+        <div id = "player">
+            <div id = "stage">
+
+            </div>
+            <div id = "controls">
+                <p id = "currentSong">Current: </p>
+                <button onclick = "songPlay()">play</button>
+                <button onclick = "songPause()">pause</button>
+                <button onclick = "changeSpeed(-0.25)">slower</button>
+                <button onclick = "changeSpeed(0.25)">faster</button>
+                <button onclick = "changeVolume(-0.25)">quieter</button>
+                <button onclick = "changeVolume(0.25)">louder</button>
+                <button onclick = "seek(0)">restart song</button>
+                <button onclick = "resizeAnim(0.5)">smaller</button>
+                <button onclick = "resizeAnim(2)">bigger</button>
+            </div>
+        </div>
+    </div>
 
     <script src = "/navigation.js"></script>
     <script>
         indexButton();
         theaterButton();
     </script>
+    <script src = "animData.js" defer></script>
+    <script src = "songData.js" defer></script>
+    <script src = "animation.js" defer></script>
+    <script src = "main.js" defer></script>
 </body>
 </html>
