@@ -3,4 +3,4 @@
 let testContainer = document.getElementById("testContainer");
 
 clearTextbox(testContainer, "black");
-drawText("*<Are we connected?<*", testContainer);
+drawText("*AHHHH<HH<HHHHH<HHHHHHHHHHHHHH<*", testContainer);
