@@ -1,0 +1,1 @@
+/home/kyle/web\ repo/zackfisher.neocities.org/testing/rust/testcargo/target/wasm32-unknown-unknown/release/testcargo.wasm: /home/kyle/web\ repo/zackfisher.neocities.org/testing/rust/testcargo/src/lib.rs
