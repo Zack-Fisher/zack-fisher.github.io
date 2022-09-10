@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: blue;
+            color:greenyellow;
+        }
+        input{
+            position: relative;
+        }
+        input:hover{
+            background-color: brown;
+            animation: wobble 0.01s ease-in-out infinite;
+        }
+        @keyframes wobble {
+            0%{
+                left:5px;
+            }
+            100%{
+                left:-5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>wasmtest</h1>
+    <p>what's my number, buddy (0-9)</p>
+    <input id = "guess" type="number" value = "1">
+    <button id = "submit" onclick = "makeGuess(parseInt(document.getElementById(number).value), num)">make guess</button>
+
+    <script type = "module" defer>
+        import init, {greet, makeGuess} from "./wasmbindgen/pkg/minesweeper.js";
+        init()
+            .then(() => {
+                var num = Math.floor(Math.random() * 10);
+                document.getElementById("submit").onclick = function() {
+                    makeGuess(parseInt(document.getElementById("guess").value), num);
+                };
+            });
+    </script>
+</body>
+</html>

@@ -73,6 +73,10 @@ function appendNavigatorDiv(){
     body.insertBefore(navigationDiv, children[0]);
 }
 
+function fix(){
+    navigationDiv.style.position = "fixed";
+}
+
 let body = document.getElementsByTagName("body")[0];
 
 let navigationDiv = document.createElement("div");
