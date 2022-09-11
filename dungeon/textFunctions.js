@@ -98,12 +98,6 @@ function addAnimation(charDiv, animName){
     }
 }
 
-function addSpace(container){ //make text skip to next box
-    let space = document.createElement("div");
-    space.className = "space";
-    container.append(space);
-}
-
 function drawText(currText, container){ //container is a div
     let filterList = parseString(currText);
     let textLen = currText.length;
@@ -138,23 +132,21 @@ function drawText(currText, container){ //container is a div
 
             setTimeout(() => {
                 container.append(letterDiv);
-                addSpace(container);
             }, i * 50); 
         } 
     }
 }
 
-function drawIDEText(letter, div){
+function drawIDEText(letter, line){
     let letterDiv = document.createElement('div');
     let letterImg = document.createElement('img');
     let letterCode = letter.charCodeAt(0);
 
     letterImg.src = "letters/" + letterCode + ".png";
-    letterDiv.style.display = "inline-block";
     letterDiv.className = "letter";
     letterDiv.append(letterImg);
 
-    div.append(letterDiv);
+    line.append(letterDiv);
     console.log("p");
 }
 
