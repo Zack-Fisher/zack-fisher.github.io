@@ -1,0 +1,13 @@
+[package]
+name = "dungeonrust"
+authors = ["Zack Fisher <zackfisher27@proton.me>"]
+version = "0.1"
+edition = "2022"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
