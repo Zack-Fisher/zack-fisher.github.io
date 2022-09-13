@@ -1,0 +1,1 @@
+/home/kyle/web\ repo/zackfisher.neocities.org/testing/spaceinvaders/spacerust/target/wasm32-unknown-unknown/release/spacerust.wasm: /home/kyle/web\ repo/zackfisher.neocities.org/testing/spaceinvaders/spacerust/src/lib.rs
