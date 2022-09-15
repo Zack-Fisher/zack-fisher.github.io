@@ -34,6 +34,10 @@
     <input id = "guess" type="number" value = "1">
     <button id = "submit" onclick = "makeGuess(parseInt(document.getElementById(number).value), num)">make guess</button>
 
+    <br>
+
+    <p id = "type"></p>
+
     <script type = "module" defer>
         import init, {greet, makeGuess} from "./wasmbindgen/pkg/minesweeper.js";
         init()
@@ -42,6 +46,10 @@
                 document.getElementById("submit").onclick = function() {
                     makeGuess(parseInt(document.getElementById("guess").value), num);
                 };
+
+                document.addEventListener("keydown", (e) => {
+                    document.getElementById("type").innerHTML += e.key;   
+                });
             });
     </script>
 </body>

@@ -20,3 +20,4 @@ pub fn makeGuess(guess: i32, number: i32){
     }
     alert("that's not it...");
 }
+
