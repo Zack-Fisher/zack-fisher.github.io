@@ -8,12 +8,29 @@
     <link rel = "stylesheet" href = "dungeonstyle.css">
 </head>
 <body>
-    <p>the new home of dungeon</p>
+    <button onclick="currCutscene = testcstwo">t2</button>
+    <button onclick="currCutscene = testcs">t1</button>
+
+    <button onclick="changeState('worldMap')">worldMap</button>
+    <button onclick="changeState('cutscene')">cutscene</button>
+    <button onclick="changeState('explore')">explore</button>
+    <button onclick="changeState('battle')">battle</button>
+    <button onclick="changeState('room')">room</button>
+
+    <button onclick="setFalse()">all flags false</button>
+    <button onclick="setTrue()">all flags true</button>
     <div id = "windows">
         <div id = "game">
             <div id = "explore"></div>
             <div id = "worldMap"></div>
-            <div id = "room"></div>
+            <div id = "room">
+                <div id = "roomText">
+
+                </div>
+                <div id = "roomButtons">
+
+                </div>
+            </div>
             <div id = "cutscene"></div>
         </div>
         <div id = "status">
@@ -25,6 +42,13 @@
 
         </div>
     </div>
-    <script type = "module" defer src = "main.js"></script>
+    <script defer src = "room/roomData.js"></script>
+    <script defer src = "room/room.js"></script>
+
+    <script defer src = "cutscene/cutscene.js"></script>
+    <script defer src = "cutscene/cutsceneData.js"></script>
+
+    <script defer src = "etc/flags.js"></script>
+    <script defer src = "main.js"></script>
 </body>
 </html>

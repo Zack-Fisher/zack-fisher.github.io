@@ -3,3 +3,41 @@ body{
     background-color: black;
     text-align: center;
 }
+
+div{
+    visibility: hidden;
+    padding: 0%;
+    margin: 0%;
+}
+
+#windows{
+    position:absolute;
+    width:fit-content;
+    height:fit-content;
+}
+
+#room{
+    position: absolute;
+    left: 200px;
+    top: 20px;
+    width: 600px;
+    height:300px;
+}
+
+#roomText{
+    position: relative;
+    left: 125px;
+    top: 200px;
+    height: 100px;
+    width: 450px;
+    opacity: 50%;
+    background-color: purple;
+}
+
+#roomButtons{
+    position: relative;
+    top: 300px;
+    height: 100px;
+    width: 600px;
+    background-color: rgb(29, 22, 22);
+}
