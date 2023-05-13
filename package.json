@@ -1,0 +1,39 @@
+{
+  "name": "zackfisher.neocities.org",
+  "version": "1.0.0",
+  "description": "",
+  "main": "canvas.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zack-Fisher/zackfisher.neocities.org.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zack-Fisher/zackfisher.neocities.org/issues"
+  },
+  "homepage": "https://github.com/Zack-Fisher/zackfisher.neocities.org#readme",
+  "dependencies": {
+    "ape-ecs": "^1.3.1",
+    "clamp": "^1.0.1",
+    "ecs": "^0.18.3",
+    "fs": "^0.0.1-security",
+    "three": "^0.152.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
+    "error-overlay-webpack-plugin": "^1.1.1",
+    "eslint": "^7.32.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-webpack-plugin": "^4.0.1",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^5.1.1"
+  }
+}
